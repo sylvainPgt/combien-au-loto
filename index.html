@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Combien au Loto ?</title>
+  <meta name="description" content="Choisissez votre train de vie — revenu, maisons, yacht, voyages, enfants — et découvrez le jackpot qu'il vous faudrait gagner au Loto ou à l'EuroMillions.">
+  <meta property="og:title" content="Combien au Loto ?">
+  <meta property="og:description" content="Le simulateur qui calcule le jackpot nécessaire à votre train de vie rêvé.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='30' fill='%23E3B23C'/><text x='32' y='43' font-size='30' text-anchor='middle' font-family='Arial' font-weight='700' fill='%2314231D'>€</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <h1>Combien faut-il gagner au Loto&nbsp;?</h1>
+      <p class="lede">Décrivez la vie que vous voulez mener. On calcule le jackpot qui la finance pour de bon — impôts sur les placements, inflation et entretien compris.</p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="config" aria-label="Votre train de vie">
+      <div class="presets" role="group" aria-label="Exemples de trains de vie">
+        <span class="presets-label">Partir d'un exemple</span>
+        <div class="presets-list" id="presets"></div>
+      </div>
+
+      <div class="mode-switch" role="tablist" aria-label="Façon de décrire votre train de vie">
+        <button role="tab" id="tab-revenu" aria-controls="panel-revenu" data-mode="revenu">Je vise un revenu</button>
+        <button role="tab" id="tab-vie" aria-controls="panel-vie" data-mode="vie">Je compose mon train de vie</button>
+      </div>
+
+      <div role="tabpanel" id="panel-revenu" aria-labelledby="tab-revenu" class="panel"></div>
+      <div role="tabpanel" id="panel-vie" aria-labelledby="tab-vie" class="panel"></div>
+
+      <details class="hypotheses" id="hypotheses">
+        <summary>Hypothèses financières</summary>
+        <div id="hyp-body"></div>
+      </details>
+    </section>
+
+    <aside class="result" aria-live="polite" aria-label="Résultat">
+      <div class="ticket" id="ticket">
+        <p class="ticket-kicker">Il vous faut gagner</p>
+        <div class="balls" id="balls" aria-hidden="true"></div>
+        <p class="ticket-exact" id="exact"></p>
+        <div class="split" id="split"></div>
+        <p class="ticket-rente" id="rente"></p>
+      </div>
+
+      <div class="verdict" id="verdict"></div>
+
+      <div class="odds" id="odds"></div>
+
+      <details class="breakdown" id="breakdown">
+        <summary>Le détail du calcul</summary>
+        <div id="breakdown-body"></div>
+      </details>
+
+      <button class="share" id="share" type="button">Copier le lien de ma simulation</button>
+    </aside>
+  </main>
+
+  <div class="dock" id="dock" aria-hidden="true">
+    <span>Jackpot nécessaire</span>
+    <strong id="dock-amount"></strong>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <section>
+        <h2>Comment c'est calculé</h2>
+        <p>Les gains de la Française des Jeux ne sont pas imposés en France. En revanche, ce que le capital rapporte une fois placé l'est : le prélèvement forfaitaire unique est de 31,4&nbsp;% depuis 2026. Le simulateur additionne vos achats immédiats (biens, frais de notaire, donations) et le capital qui, placé au rendement choisi, vous verse vos dépenses annuelles en euros constants jusqu'à l'âge choisi — ou indéfiniment si vous voulez transmettre le capital intact. L'IFI s'applique au-delà de 1,3&nbsp;M€ de patrimoine immobilier, avec un abattement de 30&nbsp;% sur la résidence principale. Les prix sont des ordres de grandeur.</p>
+        <p>Loto&nbsp;: 5 numéros sur 49 et un numéro chance sur 10, soit une chance sur 19&nbsp;068&nbsp;840 de décrocher le jackpot, trois tirages par semaine, grille à 2,20&nbsp;€. Le jackpot démarre à 2&nbsp;M€ et augmente de 1&nbsp;M€ à chaque tirage sans gagnant. EuroMillions&nbsp;: une chance sur 139&nbsp;838&nbsp;160, jackpot plafonné à 250&nbsp;M€.</p>
+      </section>
+      <section>
+        <h2>Jouer reste un jeu</h2>
+        <p>Ce site est une simulation ludique, sans lien avec la FDJ, et ne constitue pas un conseil financier. Si le jeu devient un problème, Joueurs Info Service répond au <a href="tel:0974751313">09 74 75 13 13</a> (appel non surtaxé), 7&nbsp;jours sur&nbsp;7.</p>
+      </section>
+    </div>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
